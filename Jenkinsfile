@@ -6,18 +6,18 @@ pipeline{
             steps {
                 echo "****bulding the application****"
            }
-
+        }
            stage('testing'){
             steps {
                 echo "****testing the application****"
            }
-           stage("Docker"){
+           stage('Docker'){
             steps{
                 echo "****dockerizing the application****"
             }
 
            }
         }
-        }
+        
     }
 }
