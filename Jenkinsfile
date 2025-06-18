@@ -11,13 +11,12 @@ pipeline{
             steps {
                 echo "****testing the application****"
            }
+          }
            stage('Docker'){
             steps{
                 echo "****dockerizing the application****"
             }
 
            }
-        }
-        
-    }
+    }        
 }
