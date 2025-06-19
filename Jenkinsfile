@@ -9,7 +9,7 @@ pipeline{
         stage('Build'){
             environment{
                 // Define the environment
-                year = "2025"
+                course = "2025"
             }
             steps{
                 echo "Welcome ${name}"
