@@ -7,8 +7,6 @@ pipeline {
                 sh "hostname -i"
             }
         } 
-    }
-        stages{
         stage("Test") {
         steps {
             echo "Testing the code...."
