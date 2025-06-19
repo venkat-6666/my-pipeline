@@ -14,7 +14,6 @@ pipeline{
             steps{
                 echo "Welcome ${name}"
                 echo "your ${course}"
-                echo "in this ${year}"
             }
         }
     }
