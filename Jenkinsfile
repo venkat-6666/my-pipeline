@@ -1,21 +1,15 @@
 pipeline{
     agent any
     environment{
-        // Define the environment
-        name = "venkat"
-        course = "GCP"
+        a=10
     }
     stages{
-        stage('Build'){
-            environment{
-                // Define the environment
-                course = "2025"
-            }
-            steps{
-                echo "Welcome ${name}"
-                echo "your ${course}"
-                echo "my branch ${env.BUILD_NUMBER}"
-            }
+        when{
+            condition a=10
+        }
+        stage('condition')
+        steps{
+            echo "Condition is true"
         }
     }
 }
