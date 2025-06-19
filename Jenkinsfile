@@ -14,6 +14,7 @@ pipeline{
             steps{
                 echo "Welcome ${name}"
                 echo "your ${course}"
+                echo "my branch ${env.BRANCH_NAME}"
             }
         }
     }
