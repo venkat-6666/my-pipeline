@@ -28,11 +28,17 @@ pipeline{
             }
         }
         stage('Deploy') {
+            when {
+                branch 'release/*'
+            }
             steps {
                 echo "****deploying the application****"
             }
         }
         stage('release') {
+            when {
+                tag pattern: "v*", comparator: "REGEXP"
+            }
             steps {
                 echo "****releasing the application****"
             }
