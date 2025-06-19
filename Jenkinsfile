@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        a = '10'
+        a = '11'
     }
     stages {
         stage('condition') {
