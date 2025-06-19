@@ -1,15 +1,15 @@
-pipeline {
+pipeline{
     agent any
-    environment {
-        a = '11'
+    environment{
+        DEPLOY_TO = 'server'
     }
-    stages {
-        stage('condition') {
-            when {
-                expression { return env.a == '10' }
+    stages{
+        stage('prodep'){
+            when{
+                environment name: 'DEPLOY_TO', value: 'server'
             }
-            steps {
-                echo "Condition is true"
+            steps{
+                echo "deploying to server"
             }
         }
     }
