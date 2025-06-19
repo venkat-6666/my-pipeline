@@ -1,22 +1,18 @@
-pipeline{
+pipeline {
     agent any
-
-    stages{
+    
+    stages {
         stage('Build') {
             steps {
-                echo "****bulding the application****"
-           }
-        }
-           stage('testing'){
-            steps {
-                echo "****testing the application****"
-           }
-          }
-           stage('Docker'){
-            steps{
-                echo "****dockerizing the application****"
+                sh "hostname -i"
             }
-
-           }
-    }        
+        } 
+    }
+        stages{
+        stage("Test") {
+        steps {
+            echo "Testing the code...."
+        }
+        }
+    }
 }
