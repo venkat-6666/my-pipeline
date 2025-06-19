@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('prodep'){
             when {
-                expression {BRANCH_NAME ==~ /(producation|staging)/}
+                branch '123'
             }
             steps{
                 echo "deploying to production or staging"
