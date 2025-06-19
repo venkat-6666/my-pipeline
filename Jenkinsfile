@@ -1,22 +1,16 @@
 pipeline{
     agent any
-
-    stages{
-        stage('Build') {
-            steps {
-                echo "****bulding the application****"
-           }
-        }
-           stage('testing'){
-            steps {
-                echo "****testing the application****"
-           }
-          }
-           stage('Docker'){
+    environment {
+        // Define the environment
+        name = "venkat"
+        course = "GCP"
+    }
+    stage{
+        stage('Build'){
             steps{
-                echo "****dockerizing the application****"
+                echo "Welcome ${name}"
+                echo "your ${course}"
             }
-
-           }
-    }        
+        }
+    }
 }
