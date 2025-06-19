@@ -5,7 +5,7 @@ pipeline{
         name = "venkat"
         course = "GCP"
     }
-    stage{
+    stages{
         stage('Build'){
             steps{
                 echo "Welcome ${name}"
