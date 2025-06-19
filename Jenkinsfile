@@ -1,17 +1,47 @@
 pipeline{
     agent any
-    stages{
-        stage('prodep'){
+    environment {
+        DEPLOY_TO = 'server'
+    }
+    stages {
+        stage('prodep') {
             when {
-                anyOf{
-                branch '123'
-                branch 'production'
-                }
+                environment name: 'DEPLOY_TO', value: 'server'
             }
-            steps{
-                echo "deploying to production or staging"
+            steps {
+                echo "deploying to server"
             }
         }
-
+        stage('Build') {
+            steps {
+                echo "****building the application****"
+            }
+        }
+        stage('Testing') {
+            steps {
+                echo "****testing the application****"
+            }
+        }
+        stage('Docker') {
+            steps {
+                echo "****dockerizing the application****"
+            }
+        }
+        stage('Deploy') {
+            when {
+                branch 'release/*'
+            }
+            steps {
+                echo "****deploying the application****"
+            }
+        }
+        stage('release') {
+            when {
+                tag pattern: "v*", comparator: "REGEXP"
+            }
+            steps {
+                echo "****releasing the application****"
+            }
+        }
     }
- }
+}
