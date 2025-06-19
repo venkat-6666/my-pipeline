@@ -4,27 +4,32 @@ pipeline{
         DEPLOY_TO = 'server'
     }
     stages {
+        parrallel {
         stage('prodep') {
             when {
                 environment name: 'DEPLOY_TO', value: 'server'
             }
             steps {
                 echo "deploying to server"
+                sleep 15
             }
         }
         stage('Build') {
             steps {
                 echo "****building the application****"
+                sleep 15
             }
         }
         stage('Testing') {
             steps {
                 echo "****testing the application****"
+                sleep 15
             }
         }
         stage('Docker') {
             steps {
                 echo "****dockerizing the application****"
+                sleep 15
             }
         }
         stage('Deploy') {
@@ -33,6 +38,7 @@ pipeline{
             }
             steps {
                 echo "****deploying the application****"
+                sleep 15
             }
         }
         stage('release') {
@@ -41,7 +47,9 @@ pipeline{
             }
             steps {
                 echo "****releasing the application****"
+                sleep 15
             }
         }
     }
 }
+} 
