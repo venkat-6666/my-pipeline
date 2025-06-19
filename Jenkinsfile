@@ -4,7 +4,6 @@ pipeline{
         DEPLOY_TO = 'server'
     }
     stages {
-        parrallel {
         stage('prodep') {
             when {
                 environment name: 'DEPLOY_TO', value: 'server'
@@ -14,6 +13,8 @@ pipeline{
                 sleep 15
             }
         }
+        stage('parllelofscan'){
+            parallel {
         stage('Build') {
             steps {
                 echo "****building the application****"
@@ -51,5 +52,6 @@ pipeline{
             }
         }
     }
+        }
 }
 } 
