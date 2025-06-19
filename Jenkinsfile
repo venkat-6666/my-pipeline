@@ -1,15 +1,16 @@
-pipeline{
+pipeline {
     agent any
-    environment{
-        a=10
+    environment {
+        a = '10'
     }
-    stages{
-        when{
-            condition a=10
-        }
-        stage('condition')
-        steps{
-            echo "Condition is true"
+    stages {
+        stage('condition') {
+            when {
+                expression { return env.a == '10' }
+            }
+            steps {
+                echo "Condition is true"
+            }
         }
     }
 }
