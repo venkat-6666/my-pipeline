@@ -1,41 +1,35 @@
 pipeline{
     agent any
-    
     stages {
-        stage('prodep') {
-            steps {
-                echo "deploying to server"
-            }
         stage('Build') {
             steps {
-                echo "****building the application****"
+                echo "Building the project..."
             }
-        }
-        stage('Testing') {
-            steps {
-                echo "****testing the application****"
+            stage('Testing') {
+                steps {
+                    echo "Testing the application..."
+                }
             }
-        }
-        stage('Docker') {
-            steps {
-                echo "****dockerizing the application****"
+            stage('Docker') {
+                steps {
+                    echo "Dockerizing the application..."
+                }
             }
-        }
-        stage('Deploy') {
-            input {
-                message "Do you want to deploy the application?"
-                ok "Yes, deploy it!"
-                submitter 'devsai'
+            stage('Deploy') {
+                input {
+                    message "Do you want to deploy the application?"
+                    ok "Yes, deploy it!"
+                    submitter 'devsai'
+                }
+                steps {
+                    echo "Deploying the application..."
+                }
             }
-            steps {
-                echo "****deploying the application****"
+            stage('Release') {
+                steps {
+                    echo "Releasing the application..."
+                }
             }
-        }
-        stage('release') {
-            steps {
-                echo "****releasing the application****"
-            }
-        }
-    }
+        } 
     }
 }
