@@ -2,21 +2,21 @@ pipeline{
     agent any
     stages {
         stage('Build') {
-            step{
+            steps {
                 sh "hostname -i"
             }
         } 
     }
      post {
-            //This will run after the pipeline is successfully completed
-            success {
+            //this will run after the pipeline is scuccessful completed
+            scuccess{
                 echo "********====Pipeline is successful======*********"
             }
-            //This will run after the pipeline has failed
+            //this will run after the pipeline is failed
             failure {
                 echo "********====Pipeline is failed======*********"
             }
-            //This will run after the pipeline is successful or failed
+            //this will run after the pipeline is successful or failed
             always {
                 echo "********====Pipeline is completed======*********"
             }
