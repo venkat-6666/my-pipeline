@@ -5,6 +5,7 @@ pipeline{
             steps {
                 echo "Building the project..."
             }
+        }
             stage('Testing') {
                 steps {
                     echo "Testing the application..."
@@ -32,4 +33,3 @@ pipeline{
             }
         } 
     }
-}
