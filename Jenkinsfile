@@ -14,14 +14,14 @@ pipeline {
     stages {
         stage('Example'){
             steps{
-                echo "Hello, ${PERSON}!"
-                echo "Biography: ${BIOGRAPHY}"
-                echo "Toggle is set to: ${TOGGLE}"
-                echo "You chose: ${CHOICE}"
-                echo "Password: ${PASSWORD}"
+                echo "Hello, ${params.PERSON}!"
+                echo "Biography: ${params.BIOGRAPHY}"
+                echo "Toggle is set to: ${params.TOGGLE}"
+                echo "You chose: ${params.CHOICE}"
+                echo "Password: ${params.PASSWORD}"
                 // Note: Avoid printing sensitive information like passwords in logs
                 // Instead, use a secure way to store and retrieve sensitive data
-                
+
             }
         }
     }
