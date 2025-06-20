@@ -1,28 +1,24 @@
-pipeline {
+pipeline{
     agent any
-    parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-    }
     stages {
-        stage('Example'){
-            steps{
-                echo "Hello, ${params.PERSON}!"
-                echo "Biography: ${params.BIOGRAPHY}"
-                echo "Toggle is set to: ${params.TOGGLE}"
-                echo "You chose: ${params.CHOICE}"
-                echo "Password: ${params.PASSWORD}"
-                // Note: Avoid printing sensitive information like passwords in logs
-                // Instead, use a secure way to store and retrieve sensitive data
-
+        stage('Build') {
+            steps {
+                sh "hostname -i"
+            }
+        } 
+    }
+     post {
+            //This will run after the pipeline is successfully completed
+            success {
+                echo "********====Pipeline is successful======*********"
+            }
+            //This will run after the pipeline has failed
+            failure {
+                echo "********====Pipeline is failed======*********"
+            }
+            //This will run after the pipeline is successful or failed
+            always {
+                echo "********====Pipeline is completed======*********"
             }
         }
-    }
-}  
+}
