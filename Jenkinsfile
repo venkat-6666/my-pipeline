@@ -8,15 +8,15 @@ pipeline{
         } 
     }
      post {
-            //this will run after the pipeline is scuccessful completed
-            scuccess{
+            //this will run after the pipeline is successfully completed
+            success {
                 echo "********====Pipeline is successful======*********"
             }
-            //this will run after the pipeline is failed
+            //This will run after the pipeline has failed
             failure {
                 echo "********====Pipeline is failed======*********"
             }
-            //this will run after the pipeline is successful or failed
+            //This will run after the pipeline is successful or failed
             always {
                 echo "********====Pipeline is completed======*********"
             }
