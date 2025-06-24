@@ -17,6 +17,11 @@ pipeline{
                 }
             }
             stage('Deploy') {
+
+                options {
+                    timeout(time: 1, unit: 'MINUTES') // Timeout after 5 minutes
+                    retry(3) // Retry this stage up to 3 times if it fails
+                }
                 input {
                     message "Do you want to deploy the application?"
                     ok "Yes, deploy it!"
