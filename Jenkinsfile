@@ -1,20 +1,19 @@
 pipeline{
     agent any
-
     stages{
-        stage('Build') {
+        stage('Ram') {
             steps {
-                echo "****bulding the application****"
+                echo "****Q****"
            }
         }
            stage('testing'){
             steps {
-                echo "****testing the application****"
+                echo "***hgfiddososop****"
            }
           }
            stage('Docker'){
             steps{
-                echo "****dockerizing the application****"
+                echo "****danger****"
             }
 
            }
